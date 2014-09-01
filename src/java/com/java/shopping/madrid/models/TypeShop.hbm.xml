@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2014 10:26:14 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.java.shopping.madrid.models.TypeShop" table="typeshop" catalog="shoppingmadrid">
+        <id name="idType" type="java.lang.Integer">
+            <column name="idType" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="name_es" type="string">
+            <column name="name_es" length="50" not-null="true" />
+        </property>
+        <property name="name_en" type="string">
+            <column name="name_en" length="50" not-null="true" />
+        </property>
+    </class>
+
+    <query name="listTypeShopES">
+        from TypeShop a order by name_es
+    </query>
+    <query name="listTypeShopEN">
+        from TypeShop a order by name_en
+    </query>
+    
+    <query name="findTypeShop">
+        from TypeShop a where a.name_es=:name_es
+    </query>
+
+    <query name="getTypeShopById">
+        from TypeShop a where a.idType=:idType
+    </query>         
+</hibernate-mapping>

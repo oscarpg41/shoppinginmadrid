@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/XXXXXX?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">XXXXXX</property>
+    <property name="hibernate.connection.password">XXXXXX</property>
+    <mapping resource="com/java/shopping/madrid/models/Markets.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/DepartmentStore.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/Shops.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/Areas.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/Mall.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/Login.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/Stores.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/Streets.hbm.xml"/>
+    <mapping resource="com/java/shopping/madrid/models/TypeShop.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

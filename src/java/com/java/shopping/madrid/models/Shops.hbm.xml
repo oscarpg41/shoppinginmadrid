@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2014 10:26:14 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.java.shopping.madrid.models.Shops" table="shops" catalog="shoppingmadrid">
+        <id name="idShop" type="java.lang.Integer">
+            <column name="idShop" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="idStreet" type="int">
+            <column name="idStreet" not-null="true" />
+        </property>
+        <property name="number" type="int">
+            <column name="number" not-null="true" />
+        </property>
+        <property name="zip" type="int">
+            <column name="zip" not-null="true" />
+        </property>
+        <property name="idArea" type="int">
+            <column name="idArea" not-null="true" />
+        </property>
+        <property name="web" type="string">
+            <column name="web" not-null="true" />
+        </property>
+        <property name="metro" type="string">
+            <column name="metro" length="200" not-null="true" />
+        </property>        
+        <property name="idType" type="int">
+            <column name="idType" not-null="true" />
+        </property>
+    </class>
+
+    <query name="getShopsByIdStreet">
+        from Shops a where a.idStreet=:idStreet order by name
+    </query>
+
+    <query name="getShopsByStreetPageArea">
+        from Shops a where a.idStreet=:idStreet order by name
+    </query>
+    <query name="getShopsByTypePageArea">
+        from Shops a where a.idStreet=:idStreet and a.idType=:idType order by name
+    </query>
+            
+    <query name="findShop">
+        from Shops a where a.idStreet=:idStreet and a.name=:name
+    </query>
+
+    <query name="getShopById">
+        from Shops a where a.idShop=:idShop
+    </query>
+    
+    <!-- Queries para la funcionalidad de busqueda de tiendas -->
+    <query name="allShop">
+        from Shops a order by name
+    </query>
+
+    <query name="getShopsLikeName">
+        from Shops a where a.name like :name order by name
+    </query>    
+
+    <query name="getShopsByType">
+        from Shops a where a.idType=:idType order by name
+    </query>                
+
+    <query name="getShopsByTypeAndName">
+        from Shops a where a.name like :name and a.idType=:idType order by name
+    </query>                
+                                
+</hibernate-mapping>

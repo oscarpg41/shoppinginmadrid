@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2014 10:26:14 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.java.shopping.madrid.models.Stores" table="stores" catalog="shoppingmadrid">
+        <id name="idStore" type="java.lang.Integer">
+            <column name="idStore" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="idStreet" type="int">
+            <column name="idStreet" not-null="true" />
+        </property>
+        <property name="number" type="int">
+            <column name="number" not-null="true" />
+        </property>
+        <property name="zip" type="int">
+            <column name="zip" not-null="true" />
+        </property>
+        <property name="idArea" type="int">
+            <column name="idArea" not-null="true" />
+        </property>
+        <property name="web" type="string">
+            <column name="web" not-null="true" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="100" not-null="true" />
+        </property>
+        <property name="idDepartmentStore" type="int">
+            <column name="idDepartmentStore" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

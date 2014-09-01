@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2014 10:26:14 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.java.shopping.madrid.models.DepartmentStore" table="departmentstore" catalog="shoppingmadrid">
+        <id name="idDepartmentStore" type="java.lang.Integer">
+            <column name="idDepartmentStore" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+    </class>
+
+    <query name="listDepartment">
+        from DepartmentStore order by name
+    </query>
+    
+    <query name="findDepartment">
+        from DepartmentStore a where a.name=:name
+    </query>
+
+</hibernate-mapping>

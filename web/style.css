@@ -1,0 +1,361 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(http://fonts.googleapis.com/css?family=Economica:400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+/* 
+  R E S E T (Por Oskar P�rez)
+*/
+* { margin: 0; padding: 0 }
+ol, ul, li { list-style: none }
+h1, h2, h3, h4, h5, h6 { font-weight: normal }
+
+/*
+  E S T I L O S    G E N E R A L E S
+*/
+html, body { width: 100% }
+
+body { background: white; font-weight: 300; font-family: Roboto, sans-serif; color: #222222 }
+
+input, textarea, select { font-family: Lato, sans-serif; font-weight: 700; font-size: 1em }
+
+li { padding: 0.3em 0}
+
+img { max-width: 100% }
+
+a       { color: #3758DA; text-decoration: none }
+a:hover { color: #D2691E; text-decoration: underline }
+
+h1 { float: left; background: rgba(0, 0, 0, 0.5); padding: .2em .4em; border-radius: 0.2em }
+h2 { font-weight: 400; color: #FF9501; margin: 0 0 0.4em }
+
+p { padding: 1em 0 .5em 0}
+
+
+/* 
+  C L A S E S 
+*/
+.wrapper     { padding: 2%; width: 96% }
+.porque      { float: left; margin: 0 0 1em 0; padding: 0 1% }
+.separador   { clear: both; height: 1px; margin: .7em 3px; background: rgba(0, 0, 0, 0.2) }
+.nomobile    { display: none }
+.text-center { text-align: center }
+.p-search    { margin:0; padding: 0 }
+.imgTaxFree  { margin: 3%; float:right; border: 0 }
+
+
+/*
+  C O O K I E S
+*/
+.cookies {
+  background: rgba(0, 0, 0, 0.8); position: fixed; left: 0; top: 0; width: 96%;
+  color: #FFF; z-index: 100; padding: 0 .5em 1em;
+}
+.cookies .close {
+  position: absolute; right: 2em; top: .5em;  padding: .4em .6em;
+  background: rgba(255, 255, 255, 0.6); font-weight: bold;
+}
+.cookies a       { color: #FFFFFF }
+.cookies a:hover { color: #EE7F27 }
+
+/*  C O O K I E S    P O L I C Y  */
+.cookies-policy h3 { margin: 1% 0 0 1%}
+.cookies-policy p  { margin: 0 0 0 1% }
+.cookies-policy li { margin: 0 0 0 2.5em; list-style-type:circle }
+
+
+
+/*
+  F L A G S
+*/
+.languageArea      { position:absolute; top:.9em; right:4em; z-index:2; background: rgba(0,0,0,.6) }
+.languageLink      { display:block; padding:2px 20px 2px 2px; border:solid 1px #94A3C4; ; font-size: 1em; background:url(images/iconos/arrow-blue-sm-d-v1.gif) no-repeat 85% center}
+.languageLink img  { display:inline; border-width:0; width: 20px; height:13px }
+.languages         { display:none; padding:5px 0px 0px 0px; border:solid 1px #94A3C4; border-top:none}
+.languages a       { margin:0; display:block; padding-left:10px; }
+.languages a:hover { background: rgba(255, 255, 255,.6) }
+
+
+/*
+  C A B E C E R A
+*/
+header {
+  width: 100%;
+  background: url(images/cabecera/madrid02-400x100.jpg) #222222 no-repeat;
+  background-size: cover;
+  font-weight: 400;
+  height: 100px;
+  color: #F8F8FF;
+  position: relative;
+  margin: 0 auto;
+  border-bottom: 2px solid #000;
+  font-family: Economica;
+}
+
+header a       { color: #FFF; text-shadow: 4px 4px 4px #aaa; font-size: 1em }
+header a:hover { color: #FFF; text-decoration: none }
+header .title2 { color: #FFF }
+
+/* 
+  M E N U   S U P E R I O R
+*/
+.btn-menu { height: 45px; float: right; margin: .5em; padding: 0 54px 0 0; background: url("images/btn-openmenu.png") right no-repeat }
+
+.nav         { background: rgba(0, 0, 0, 0.9); width: 100%; margin: 0 auto; text-align: center }
+.nav li      { margin: 0 0.5% }
+.nav a       { display: block; color: #fafafa; padding: 0.5em }
+.nav a:hover { color: #000; text-decoration: underline; background: rgba(255, 255, 255, 0.8) }
+
+
+
+/* C S S   P A R A   L A S   P A G I N A S   D E   D E   I N F O R M A C I O N   D E   C A D A   O B J E T O */
+.img_objeto  { width: 98% }
+.info_objeto { padding: 1%; margin: 1em 0 0 }
+.info_objeto_line img { margin: 0px 0 0 20px; height: 19px }
+
+.lettersmall { font-size: .7em; font-style: italic }
+
+
+/* 
+  C L A S E S    C A J A S    M A S O N R Y
+*/
+.box { width: 270px }
+
+.article {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  margin-bottom: 10px;
+  position: relative;
+}
+.article h4 { margin: 14px 0 4px 0 }
+.article h2 { font-weight: 400; color: #FF9501; margin: 0; padding: 0; font-size: 1.4em  }
+
+
+
+/* 
+  F O R M U L A R I O S 
+*/
+/* contacto */
+.form_contacto         { width: 96%; border: 1px solid #cacaca; padding: 1%; margin: 1em auto }
+.form_contacto label   { width: 30%; display: inline-block; vertical-align: top }
+.form_contacto .submit { font-weight: 400}
+.form_contacto p       { padding: 0; margin: .5em 0 0 }
+
+/* shopping Area */
+.selectShoppingAreas            { width: 96%; border: 1px solid #cacaca; padding: 1% 0% 2% 2%; }
+.selectShoppingAreas .submit    { text-align: center; font-weight: 400 }
+.selectShoppingAreas .labelList { padding: 0; margin: .5em 0 0 }
+
+.formulario         { width: 100%; border-bottom: 1px solid #cacaca; padding: 0 1% }
+.fila, .fila-submit { margin: 0 0 4% 0 }
+.fila p             { margin: 0; padding: 0 }
+
+
+
+input, textarea, select { padding: 10px; border: 1px solid #cacaca; font-size: 1em; background: #F5F5F5 }
+
+input, textarea { width: 91%}
+select          { width: 98% }
+
+input[type="submit"]        { background: #B0E0E6; width: 11em }
+input[type="submit"]:hover  { background: #4682B4; color:#FFF }
+
+
+.comming-soon { background: url(images/misc/under-construction.png) no-repeat center; height: 350px; margin: 1em 0 }
+
+
+/*
+	D I S C L A I M E R
+*/
+.disclaimer         { margin: 1% }
+.disclaimer h3      { background: #CACACA }
+.disclaimer h4      { margin: 0 0 0 2%; background: #EEE }
+.disclaimer p       { margin: 0 0 0 3% }
+.disclaimer a       { color: #4682B4; font-weight: bold }
+.disclaimer a:hover { color: #4682B4; font-weight: bold }
+.disclaimer ul      { margin: 0 0 0 4%}
+
+/*
+	P A G I N A C I O N
+*/
+.paginacion         { padding: .5em 0;   background: #F2F2F2; text-align: center }
+.paginacion a       { padding: .5em 1em; background: #CACACA; color: #424242; margin: 0 2%;  font-size: 1em }
+.paginacion a:hover { background: #4682B4; color: #FFFFFF }
+.paginacion p       { padding: 0 1em; font-size:.8em; display: inline-block }
+
+.article a, .article a:hover{ color: #353535; text-decoration: none }
+
+
+/*
+	L I S T A D O S
+*/
+.listado       { width: 98% }
+.listado h3    { padding: 1em; color: #353535}
+
+
+
+
+
+
+/*
+	F O O T E R 
+*/
+.footer {
+  font-family: "Open Sans Condensed", serif;
+  border-top: 1px solid #ddd;
+  margin: 2em 0 0;
+  text-align: center;
+  font-weight: 300;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  clear: both;
+}
+
+.footer   { margin: 1em 0; padding: 1em 0}
+.footer p { padding: 0; margin: 0 }
+.footer a { margin: 0 1em; color: lemonchiffon }
+
+
+/*  V E N T A N A   M O D A L   */
+.modal{
+    background: rgba(0,0,0,.3); position: fixed; left: 0; top: 0; width: 100%; 
+    height: 100%; color: #FFF; z-index: 10; display: none;
+}
+.info_modal{
+    width: 650px; height: 100px; position: absolute; left: 50%; top: 35%;  
+    margin: -10px 0 0 -300px; padding: .5em; 
+}
+.modal .message{
+  text-indent: 55px; color: #222; padding: .2em 0 0;
+  font-family: Verdana, sans-serif; font-weight: 700; font-size: 1em;
+}
+.modal .close{
+    position: absolute; right: 5px; top: 5px; width:40px; height:40px;
+    font-size: 1.4em; font-weight: 700; 
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;     
+}
+
+/*  M E N S A J E S   */
+.message         { padding: 1em; text-indent: 2em; margin:1em auto; }
+.message-warning { color: #754D07; border: 1px solid #754D07; background: url(admin/images/warning.png) 10px center no-repeat #F6D7A1 }
+.message-error   { color: #b94a48; border: 1px solid #b94a48; background: url(admin/images/error.png)   10px center no-repeat #f2dede }
+.message-info    { color: #3a87ad; border: 1px solid #3a87ad; background: url(admin/images/info.png)    10px center no-repeat #d9edf7 }
+.message-success { color: #468847; border: 1px solid #468847; background: url(admin/images/success.png) 10px center no-repeat #d1feba }
+
+
+
+
+/*   M A P S   */
+.maps{ width: 99%; max-height: 300px; border:1px solid #cacaca; margin: 2% 0 }
+
+
+
+/*  L I N E A S   D E   M E T R O  */
+.linea3 { display: inline-block; padding: .3em .5em; margin: 0 1% 0 0; text-align: center; font-weight: bold; background: #FFD700; color: #191970 }
+.linea5 { display: inline-block; padding: .3em .5em; margin: 0 1% 0 0; text-align: center; font-weight: bold; background: #96bf0d; color: #FFF }
+.linea1 { display: inline-block; padding: .3em .5em; margin: 0 1% 0 0; text-align: center; font-weight: bold; background: #30a3dc; color: #FFF }
+.linea2 { display: inline-block; padding: .3em .5em; margin: 0 1% 0 0; text-align: center; font-weight: bold; background: #FF0000; color: #FFF }
+
+  
+/* 
+    M E D I A    Q U E R I E S
+*/
+
+/*   4 0 0    P I X E L E S   */
+@media (min-width: 400px) {
+    header a { font-size: 1.4em }
+}
+
+/*   5 0 0    P I X E L E S   */
+@media (min-width: 500px) {
+    header { background: url(images/cabecera/madrid02-600x150.jpg) #222222 no-repeat; height: 150px }
+    h1     { margin: 0.5em }
+}
+
+/*   5 3 0    P I X E L E S   */
+@media (min-width: 540px) {
+    header a  { font-size: 2em }
+    .btn-menu { margin: .4em; }
+}
+
+
+/*   6 4 0    P I X E L E S   */
+@media (min-width: 640px) {
+    header   { background: url(images/cabecera/madrid02-800x200.jpg) #222222 no-repeat; height: 200px }
+    
+    .languageArea      { right:1em}
+    
+    .porque   { float: left; width: 54% }
+    .main-img { float: left; width: 44%; text-align: right }
+    
+  
+    /* M E N U   S U P E R I O R   V I S I B L E  */
+    .btn-menu { display: none }
+    .nav      { display: block !important }
+    .nav li   { display: inline-block; padding: 0 }
+    .nav span { display: none }
+
+    
+    .img_objeto           { float: left; width: 48%; text-align: left; margin: 0 1em 10em 0}
+    .info_objeto          { float: left; width: 48%; padding: 0 1% }
+    .info_objeto_line     { margin: 1em 0; font-size: 1.1em }
+
+    
+    
+    .cookies-policy h3 { margin: 1em 0 0 .5em}
+    .cookies-policy p  { margin: 0 0 0 1em }
+    
+    .disclaimer         { margin: 1em }
+    .disclaimer h3      { background: #FFF; }
+    .disclaimer h4      { background: #FFF; margin: 0 0 0 1em }
+    .disclaimer p       { margin: 0 0 0 1em }
+    .imgTaxFree         { margin: 1em }
+
+    
+    .maps{ height:400px }
+    
+    .selectShoppingAreas            { padding: 1%; margin: 1em auto }
+    .selectShoppingAreas select     { width: 50% }
+    .selectShoppingAreas .labelList { width: 40%; height: 3em; display: inline-block }
+    
+    .comming-soon { background: url(images/misc/under-construction-hi.png) no-repeat center; height: 610px; margin: 1em 0 }    
+    
+    
+}
+
+/*   6 8 4    P I X E L E S   */
+@media (min-width: 684px) {
+    .selectShoppingAreas select     { width: 95% }
+    .selectShoppingAreas .labelList { display: block; height: 1.5em }   
+}
+
+/*   7 4 0    P I X E L E S   */
+@media (min-width: 740px) {
+    .nav span    { display: inline }
+    .fila        { float: left; width:48%; margin: 1em 0 } 
+    .fila-submit  input { width: 15em; clear: both  }
+}
+
+
+/*   8 0 0    P I X E L E S   */
+@media (min-width: 800px) {
+    header   { background: url(images/cabecera/madrid02-900x225.jpg) #222222 no-repeat; height: 225px }    
+    .form_contacto  { float: left; width: 47% }
+    .texto_contacto { float: right; width: 47%; padding:0 .6em }
+}
+
+/*   9 0 0    P I X E L E S   */
+@media (min-width: 900px) {
+    header { background: url(images/cabecera/madrid02-1200x300.jpg) #222222 center no-repeat; height: 250px }
+    h1 { font-size: 2em; background: rgba(0, 0, 0, 0.5); padding: .2em .4em; border-radius: 0.2em }
+    .cookies { width: 99% }
+}
+
+/*   1 2 0 0    P I X E L E S   */
+@media (min-width: 1200px) {
+    header { background: url(images/cabecera/madrid02-2000x450.jpg) #222222 center no-repeat; height: 250px}
+}

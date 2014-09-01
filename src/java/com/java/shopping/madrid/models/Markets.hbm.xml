@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2014 10:26:14 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.java.shopping.madrid.models.Markets" table="markets" catalog="shoppingmadrid">
+        <id name="idMarket" type="java.lang.Integer">
+            <column name="idMarket" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="street" type="string">
+            <column name="street" length="100" not-null="true" />
+        </property>
+        <property name="number" type="string">
+            <column name="number" length="3" not-null="true" />
+        </property>
+        <property name="zip" type="int">
+            <column name="zip" not-null="true" />
+        </property>
+        <property name="idArea" type="int">
+            <column name="idArea" not-null="true" />
+        </property>
+        <property name="web" type="string">
+            <column name="web" not-null="true" />
+        </property>
+        <property name="metro" type="string">
+            <column name="metro" length="200" not-null="true" />
+        </property>
+        <property name="descriptionEs" type="string">
+            <column name="description_es" length="65535" not-null="true" />
+        </property>
+        <property name="descriptionEn" type="string">
+            <column name="description_en" length="65535" not-null="true" />
+        </property>
+        <property name="maps" type="string">
+            <column name="maps" length="400" not-null="true" />
+        </property>        
+    </class>
+
+    <query name="listMarkets">
+        from Markets a order by name
+    </query>
+    
+    <query name="findMarket">
+        from Markets a where a.name=:name
+    </query>
+
+    <query name="getMarketById">
+        from Markets a where a.idMarket=:idMarket
+    </query>        
+</hibernate-mapping>

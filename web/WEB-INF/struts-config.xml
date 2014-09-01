@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="Contact"  type="com.java.shopping.madrid.models.Contact" />
+        <form-bean name="Login"    type="com.java.shopping.madrid.models.Login" />    
+        <form-bean name="Area"     type="com.java.shopping.madrid.models.Areas" />
+        <form-bean name="Street"   type="com.java.shopping.madrid.models.Streets" />
+        <form-bean name="TypeShop" type="com.java.shopping.madrid.models.TypeShop" />        
+        <form-bean name="Mall"     type="com.java.shopping.madrid.models.Mall" />
+        <form-bean name="Markets"  type="com.java.shopping.madrid.models.Markets" />
+        <form-bean name="Shops"    type="com.java.shopping.madrid.models.Shops" />
+        <form-bean name="Stores"   type="com.java.shopping.madrid.models.Stores" />
+        <form-bean name="DepartmentStore"     type="com.java.shopping.madrid.models.DepartmentStore" />
+    </form-beans>
+    
+    <global-exceptions></global-exceptions>
+
+
+    <global-forwards>
+        <forward name="closeSession" path="/admin/closeSession.do"/> 
+        
+        <!-- M E N U   Z O N A   P U B L I C A -->
+        <forward name="menu_public_areas"    path="./areas.jsp"/>
+        <forward name="menu_public_malls"    path="./malls.jsp"/>
+        <forward name="menu_public_markets"  path="./markets.jsp"/>
+        <forward name="menu_public_contact"  path="./contact.jsp"/>        
+        <forward name="menu_public_search"   path="./search.jsp"/>
+        
+        <!--forward name="menu_public_stores"   path="./stores.jsp"/-->
+        <forward name="menu_public_stores"   path="./comming-soon.jsp"/>
+        <forward name="menu_public_faqs"     path="./faqs.jsp"/>
+        <forward name="rastro"               path="./rastro.jsp"/>  
+
+        <forward name="footer_disclaimer"    path="./disclaimer.jsp"/>        
+        <forward name="footer_webmaster"     path="./webmaster.jsp"/>   
+        <forward name="sendMail"             path="./sendMail.do"/>         
+
+        <forward name="cookies"              path="./cookies-policy.jsp"/>                
+        <!--  A R E A S  -->
+        <forward name="area_menu"   path="#areas"/>
+        <forward name="area_new"    path="./areaNew.jsp"/>
+        <forward name="area_update" path="/admin/areaListAction.do"/>
+        <forward name="area_delete" path="/admin/areaListDeleteAction.do"/>
+        
+        
+        <!--  S T R E E T S  -->
+        <forward name="street_menu"   path="#streets"/>
+        <forward name="street_new"    path="/admin/streetNewActionPrev.do"/>
+        <forward name="street_update" path="/admin/streetListAction.do"/>
+        <forward name="street_delete" path="/admin/streetListDeleteAction.do"/>
+        
+        
+        <!--  T Y P E   S H O P S  -->
+        <forward name="typeShop_menu"   path="#typeshop"/>
+        <forward name="typeShop_new"    path="./typeShopNew.jsp"/>
+        <forward name="typeShop_update" path="/admin/typeShopListAction.do"/>
+        <forward name="typeShop_delete" path="/admin/typeShopListDeleteAction.do"/>        
+
+        
+        <!--  D E P A R T A M E N T   S T O R E S  -->
+        <forward name="department_menu"   path="#department"/>
+        <forward name="department_new"    path="./departmentNew.jsp"/>
+        <forward name="department_update" path="/admin/departmentListAction.do"/>
+        <forward name="department_delete" path="/admin/departmentListDeleteAction.do"/>
+
+        
+        <!--  M A L L  -->
+        <forward name="mall_menu"   path="#mall"/>
+        <forward name="mall_new"    path="./mallNew.jsp"/>
+        <forward name="mall_update" path="/admin/mallListAction.do"/>
+        <forward name="mall_delete" path="/admin/mallListDeleteAction.do"/>
+        
+        
+        <!--  M A R K E T S  -->
+        <forward name="market_menu"   path="#markets"/>
+        <forward name="market_new"    path="./marketNew.jsp"/>
+        <forward name="market_update" path="/admin/marketListAction.do"/>
+        <forward name="market_delete" path="/admin/marketListDeleteAction.do"/>
+
+        
+        <!--  S H O P S  -->
+        <forward name="shop_menu"   path="#shops"/>
+        <forward name="shop_new"    path="/admin/shopNewActionPrev.do"/>        
+        <forward name="shop_update" path="/admin/shopListByStreetAction.do"/>
+
+
+        <!--  S T O R E S  -->
+        <!--forward name="department_menu"   path="#stores"/-->
+
+
+    </global-forwards>
+
+
+    <action-mappings>
+        
+        <!-- Z O N A   P U B L I C A -->        
+        <action path="/getAllListAction" type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/index.jsp"/>
+        </action>
+        <action name="Contact" path="/sendMail" type="com.java.shopping.madrid.utils.SendMail" >
+            <forward name="success" path="/contact.jsp"/>
+        </action>
+
+        
+        <action path="/selectedlanguage" type="com.java.shopping.madrid.utils.SelectedLanguage" parameter="method">
+                <forward name="success" path="/index.jsp"/>
+	</action>
+
+        <action name="Mall" path="/mallGetAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.mall.MallPublicGetAction" >
+            <forward name="success" path="/getMall.jsp"/>
+        </action>         
+
+        <action name="Markets" path="/marketGetAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.market.MarketPublicGetAction" >
+            <forward name="success" path="/getMarket.jsp"/>
+        </action>  
+
+        <action name="Shops" path="/shopGetAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopGetAction" >
+            <forward name="success" path="/shop.jsp"/>
+        </action>  
+
+
+
+        <!-- Z O N A   P R I V A D A -->        
+        <action name="Login" path="/admin/login" 
+                type="com.java.shopping.madrid.servlet.actions.login.LoginAction" >
+            <forward name="success" path="/admin/inicio.jsp"/>
+            <forward name="error"   path="/admin/result.jsp"/>
+        </action>        
+        <action name="Login" path="/admin/closeSession" 
+                type="com.java.shopping.madrid.servlet.actions.login.CloseSessionAction" >
+        </action>
+
+
+        <!--  A R E A S  -->
+        <action name="Area" path="/admin/areaNewAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.area.AreaNewAction" >    
+            <forward name="success" path="/admin/areaNew.jsp"/>
+        </action>
+
+        <action name="Area" path="/admin/areaListAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/areaUpdate.jsp"/>
+        </action>
+        
+        <action name="Area" path="/admin/areaListDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/areaDelete.jsp"/>
+        </action>
+
+        <action name="Area" path="/admin/areaDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.area.AreaDeleteAction" >
+            <forward name="success" path="/admin/areaDelete.jsp"/>
+        </action>
+
+        <action name="Area" path="/admin/areaUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.area.AreaUpdateAction" >
+            <forward name="success" path="/admin/areaUpdate.jsp"/>
+        </action>
+                
+        <!-- Llamada AJAX para recuperar el listado de las areas -->
+        <action input="/" name="Area" path="/admin/getAreaAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.area.AreaGetAction"/>                
+        
+
+        
+        <!--  S T R E E T S  -->        
+        <action name="Street" path="/admin/streetNewActionPrev" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/streetNew.jsp"/>
+        </action>
+        
+        <action name="Street" path="/admin/streetNewAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.street.StreetNewAction" >
+            <forward name="success" path="/admin/streetNew.jsp"/>
+        </action>
+        
+        <action name="Street" path="/admin/streetListAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/streetUpdate.jsp"/>
+        </action>        
+        
+        <action name="Street" path="/admin/streetListDeleteAction" scope="session"
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/streetDelete.jsp"/>
+        </action>
+        
+        <action name="Street" path="/admin/streetDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.street.StreetDeleteAction">
+            <forward name="success" path="/admin/streetDelete.jsp"/>
+        </action>
+        
+        <action name="Street" path="/admin/streetUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.street.StreetUpdateAction" >
+            <forward name="success" path="/admin/streetUpdate.jsp"/>
+        </action>
+        
+        <!-- Llamada AJAX para recuperar la información de la calle -->
+        <action name="Street" path="/admin/getStreetAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.street.StreetGetAction"/>   
+
+
+        
+        <!--  T Y P E   S H O P S  -->
+        <action name="TypeShop" path="/admin/typeShopNewAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.typeShop.TypeShopNewAction" >    
+            <forward name="success" path="/admin/typeShopNew.jsp"/>
+        </action>        
+
+        <action name="TypeShop" path="/admin/typeShopListAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/typeShopUpdate.jsp"/>
+        </action>
+
+        <action name="TypeShop" path="/admin/typeShopListDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/typeShopDelete.jsp"/>
+        </action>                
+
+        <action name="TypeShop" path="/admin/typeShopUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.typeShop.TypeShopUpdateAction" >
+            <forward name="success" path="/admin/typeShopUpdate.jsp"/>
+        </action>
+
+        <action name="TypeShop" path="/admin/typeShopDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.typeShop.TypeShopDeleteAction" >
+            <forward name="success" path="/admin/typeShopDelete.jsp"/>
+        </action>          
+        
+        <!-- Llamada AJAX para recuperar el listado de las categorias -->
+        <action name="TypeShop" path="/admin/getTyeShopsAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.typeShop.TypeShopsGetAction"/>                 
+        
+        
+        
+        <!--  D E P A R T M E N T   S T O R E S  -->
+        <action name="DepartmentStore" path="/admin/departmentNewAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.departmentStore.DepartmentNewAction" >    
+            <forward name="success" path="/admin/departmentNew.jsp"/>
+        </action>        
+        
+        <action name="DepartmentStore" path="/admin/departmentListAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/departmentUpdate.jsp"/>
+        </action>
+
+        <action name="DepartmentStore" path="/admin/departmentListDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/departmentDelete.jsp"/>
+        </action>
+
+        <action name="DepartmentStore" path="/admin/departmentUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.departmentStore.DepartmentUpdateAction" >
+            <forward name="success" path="/admin/departmentUpdate.jsp"/>
+        </action>                
+        
+        <action name="DepartmentStore" path="/admin/departmentDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.departmentStore.DepartmentDeleteAction" >
+            <forward name="success" path="/admin/departmentDelete.jsp"/>
+        </action>
+        
+        
+        
+        <!--  M A L L ( C E N T R O S   C O M E R C I A L E S )  -->        
+        <action name="Mall" path="/admin/mallNewAction" 
+                type="com.java.shopping.madrid.servlet.actions.mall.MallNewAction" >
+            <forward name="success"   path="/admin/mallNew.jsp"/>
+        </action>
+        <action name="Mall" path="/admin/mallListAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/mallUpdate.jsp"/>
+        </action> 
+        <action name="Mall" path="/admin/mallUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.mall.MallUpdateAction" >
+            <forward name="success" path="/admin/mallUpdate.jsp"/>
+        </action>        
+        <action name="Mall" path="/admin/mallListDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/mallDelete.jsp"/>
+        </action>
+        <action name="Mall" path="/admin/mallDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.mall.MallDeleteAction" >
+            <forward name="success" path="/admin/mallDelete.jsp"/>
+        </action>          
+        
+        <!-- Llamada AJAX para recuperar la información del centro comerical -->
+        <action name="Mall" path="/admin/getMallAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.mall.MallGetAction"/>                 
+                        
+   
+        
+        <!--  M A R K E T S  -->        
+        <action name="Markets" path="/admin/marketNewAction" 
+                type="com.java.shopping.madrid.servlet.actions.market.MarketNewAction" >
+            <forward name="success"   path="/admin/marketNew.jsp"/>
+        </action>
+        <action name="Markets" path="/admin/marketListAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/marketUpdate.jsp"/>
+        </action>                         
+        <action name="Markets" path="/admin/marketUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.market.MarketUpdateAction" >
+            <forward name="success" path="/admin/marketUpdate.jsp"/>
+        </action>                         
+        <action name="Markets" path="/admin/marketListDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/marketDelete.jsp"/>
+        </action>
+        <action name="Markets" path="/admin/marketDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.market.MarketDeleteAction" >
+            <forward name="success" path="/admin/marketDelete.jsp"/>
+        </action>
+        
+        <!-- Llamada AJAX para recuperar la información del mercado -->
+        <action name="Markets" path="/admin/getMarketAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.market.MarketGetAction"/>                   
+                
+        
+        
+         <!--  S H O P S  -->     
+        <action name="Shops" path="/admin/shopNewActionPrev" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+                <forward name="success" path="/admin/shopNew.jsp"/>
+        </action>
+        <action name="Shops" path="/admin/shopNewAction" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopNewAction" >
+            <forward name="success"   path="/admin/shopNew.jsp"/>
+        </action>     
+        <action name="Shops" path="/admin/shopListByStreetAction" scope="session" 
+                type="com.java.shopping.madrid.utils.GetAllListAction" >
+            <forward name="success" path="/admin/shopListByStreet.jsp"/>
+        </action>
+        <action name="Shops" path="/admin/shopGetAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopGetAction" >
+            <forward name="success" path="/admin/shopUpdate.jsp"/>
+        </action>        
+        <action name="Shops" path="/admin/shopUpdateAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopUpdateAction" >
+            <forward name="success" path="/admin/shopListByStreet.jsp"/>
+        </action>
+        <action name="Shops" path="/admin/shopDeleteAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopDeleteAction" >
+            <forward name="success" path="/admin/shopListByStreet.jsp"/>
+        </action>        
+        
+        <!-- Llamada AJAX para recuperar la información de la tienda -->
+        <action name="Shops" path="/admin/shopListAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopListAction"/>           
+        
+        <action name="Shops" path="/shopListPublicAction" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopListPublicAction"/>         
+
+        <action name="Shops" path="/searchShops" scope="session" 
+                type="com.java.shopping.madrid.servlet.actions.shop.ShopSearchAction"/> 
+        
+                
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        
+        
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
