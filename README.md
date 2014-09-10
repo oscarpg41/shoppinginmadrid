@@ -3,8 +3,8 @@ shoppinginmadrid
 
 J2ee project. With Hibernate, struts, HTML5, CSS3, jQuery, Ajax
 
-Este proyecto fue el trabajo final de un Maste de Diseño y Desarrollo Web.
-Proyecto Web realizado con tecnología J2ee (Java enterprise edition) en la parte backed y con HTML5, Css3, jQuery, Ajax en la parte front-edn y usadno un diseño adaptativo para los distintos dispositivos móviles.
+Este proyecto fue el trabajo final de un Master de Diseño y Desarrollo Web.
+Proyecto Web realizado con tecnología J2ee (Java Enterprise Edition) en la parte backend y con HTML5, Css3, jQuery, Ajax en la parte front-end y usando un diseño adaptativo para los distintos dispositivos móviles.
 
 El resultado de este proyecto se puede wer en http://www.shoppinginmadrid.info
 
